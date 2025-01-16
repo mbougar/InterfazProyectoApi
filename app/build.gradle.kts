@@ -58,6 +58,11 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
     implementation (libs.androidx.lifecycle.runtime.compose)
+
+    // Datastore
+    implementation (libs.androidx.datastore.preferences.v100)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
