@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.ui.Alignment
 import com.es.interfazproyectoapi.ui.components.Header
 import com.es.interfazproyectoapi.ui.components.ErrorScreen
+import com.es.interfazproyectoapi.ui.components.HouseItem
 import kotlinx.coroutines.launch
 
 @Composable
@@ -92,36 +93,4 @@ fun HousesScreen(navController: NavController) {
             }
         }
     )
-}
-
-@Composable
-fun HouseItem(house: House) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    ) {
-        Text(
-            text = "${house.emoji ?: ""} ${house.house}",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        Text(
-            text = "Fundador: ${house.founder ?: "Desconocido"}",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        Text(
-            text = "Animal: ${house.animal ?: "No definido"}",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        if (!house.colors.isNullOrEmpty()) {
-            Text(
-                text = "Colores: ${house.colors.joinToString(", ")}",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onBackground
-            )
-        }
-    }
 }

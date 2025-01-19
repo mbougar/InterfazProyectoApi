@@ -37,6 +37,21 @@ android {
     buildFeatures {
         compose = true
     }
+    packaging {
+        resources {
+            excludes.addAll(
+                listOf(
+                    "META-INF/LICENSE.md",
+                    "META-INF/LICENSE-notice.md",
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/NOTICE",
+                    "META-INF/NOTICE.txt",
+                    "META-INF/LICENSE",
+                    "META-INF/LICENSE.txt"
+                )
+            )
+        }
+    }
 }
 
 dependencies {
@@ -63,6 +78,7 @@ dependencies {
     implementation (libs.androidx.datastore.preferences.v100)
     implementation (libs.androidx.lifecycle.livedata.ktx)
 
+    androidTestImplementation (libs.mockk.android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

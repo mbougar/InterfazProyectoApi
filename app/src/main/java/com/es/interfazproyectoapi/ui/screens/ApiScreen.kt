@@ -1,19 +1,18 @@
 package com.es.interfazproyectoapi.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
+import com.es.interfazproyectoapi.ui.components.ButtonGrid
 import com.es.interfazproyectoapi.ui.components.DrawerContent
 import kotlinx.coroutines.launch
 
@@ -84,35 +83,5 @@ fun ApiScreen(navController: NavController) {
                 }
             }
         )
-    }
-}
-
-@Composable
-fun ButtonGrid(navController: NavController) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            ApiButton("Personajes") { navController.navigate("characters") }
-            ApiButton("Hechizos") { navController.navigate("spells") }
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            ApiButton("Libros") { navController.navigate("books") }
-            ApiButton("Casas") { navController.navigate("houses") }
-        }
-    }
-}
-
-@Composable
-fun ApiButton(label: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        colors = ButtonDefaults.buttonColors(),
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier
-            .size(150.dp)
-    ) {
-        Text(text = label)
     }
 }

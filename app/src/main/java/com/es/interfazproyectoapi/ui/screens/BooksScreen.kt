@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import com.es.interfazproyectoapi.data.model.Book
 import com.es.interfazproyectoapi.data.network.RetrofitInstance
 import coil.compose.rememberImagePainter
+import com.es.interfazproyectoapi.ui.components.BookItem
 import com.es.interfazproyectoapi.ui.components.Header
 import com.es.interfazproyectoapi.ui.components.ErrorScreen
 import eu.wewox.textflow.TextFlow
@@ -90,38 +91,4 @@ fun BooksScreen(navController: NavController) {
             )
         }
     )
-}
-
-@Composable
-fun BookItem(book: Book) {
-    Text(text = book.title, style = MaterialTheme.typography.headlineSmall)
-    Text(text = "(${book.originalTitle})", style = MaterialTheme.typography.bodySmall)
-
-    Column(modifier = Modifier.padding(8.dp)) {
-
-        TextFlow(
-            text = buildString {
-                appendLine("Páginas: ${book.pages}")
-                appendLine("Publicado: ${book.releaseDate}")
-                appendLine("Sinopsis: ${book.description}")
-            },
-            style = MaterialTheme.typography.bodyMedium.copy(
-                color = MaterialTheme.colorScheme.onBackground
-            ),
-            modifier = Modifier
-                .fillMaxWidth(),
-            obstacleAlignment = TextFlowObstacleAlignment.TopStart,
-            obstacleContent = {
-                Image(
-                    painter = rememberImagePainter(data = book.cover),
-                    contentDescription = "Portada de ${book.title}",
-                    modifier = Modifier
-                        .width(120.dp)
-                        .height(200.dp)
-                        .padding(bottom = 8.dp, end = 8.dp),
-                    contentScale = ContentScale.Crop
-                )
-            }
-        )
-    }
 }

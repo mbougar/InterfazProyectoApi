@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.ui.Alignment
 import com.es.interfazproyectoapi.ui.components.Header
 import com.es.interfazproyectoapi.ui.components.ErrorScreen
+import com.es.interfazproyectoapi.ui.components.SpellItem
 import kotlinx.coroutines.launch
 
 @Composable
@@ -92,24 +93,4 @@ fun SpellsScreen(navController: NavController) {
             }
         }
     )
-}
-
-@Composable
-fun SpellItem(spell: Spell) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    ) {
-        Text(
-            text = spell.spell,
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        Text(
-            text = "Uso: ${spell.use ?: "Desconocido"}",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-    }
 }
